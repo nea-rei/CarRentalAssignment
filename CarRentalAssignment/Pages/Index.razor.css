@@ -1,0 +1,22 @@
+﻿caption {
+    font-size: 1.2rem;
+}
+
+table {
+    border: 0.1rem solid;
+}
+
+section {
+    background-color: aquamarine;
+}
+
+container {
+}
+
+table.tab3 {
+    width: 50%;
+}
+
+button.blue {
+}
+

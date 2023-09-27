@@ -1,0 +1,115 @@
+﻿@page "/"
+@using Business.Classes;
+@inject BookingProcessor bp
+
+<header>
+    <h1 class="display-6 m-5 mx-0 text-start">Hey you, welcome to Car Rental booking!</h1>
+</header>
+
+
+<section class="col-md-6">
+    <!--Vehicles-->
+    <div class="row">
+
+        <table class="tab1 table table-hover table-borderless caption-top">
+            <caption>Vehicles</caption>
+            <thead>
+                <tr>
+                    <th scope="col">RegNo</th>
+                    <th scope="col">Brand</th>
+                    <th scope="col">Odometer</th>
+                    <th scope="col">Cost km</th>
+                    <th scope="col">Vehicle type</th>
+                    <th scope="col">Daily cost</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var vehicle in bp.Vehicles)
+                {
+                    <tr>
+                        <td>@vehicle.RegNo</td>
+                        <td>@vehicle.Brand</td>
+                        <td>@vehicle.Odometer</td>
+                        <td>@vehicle.CostKm</td>
+                        <td>@vehicle.VType</td>
+                        <td>@vehicle.DailyCost</td>
+                        <td>
+                            <button type="button" class="btn btn-primary position-relative badge rounded-pill text-bg-sucess">
+                                @vehicle.Status
+                            </button>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <!--Bookings-->
+    <div class="row">
+        <table class="tab2 table caption-top table-hover">
+            <caption>Bookings</caption>
+            <thead>
+                <tr>
+                    <th scope="col">RegNo</th>
+                    <th scope="col">Customer</th>
+                    <th scope="col">Start km</th>
+                    <th scope="col">Returned km</th>
+                    <th scope="col">Rental Date</th>
+                    <th scope="col">Return Date</th>
+                    <th scope="col">Cost</th>
+                    <th scope="col">Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Mark</td>
+                    <td>Otto</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td><button type="button" class="blue btn btn-sm btn-primary position-relative">Returned</button></td>
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Jacob</td>
+                    <td>Thornton</td>
+                    <td>fat</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td>mdo</td>
+                    <td><button type="button" class="red btn btn-sm btn-danger position-relative">Booked</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!--Customers-->
+    <div class="row">
+        <table class="tab3 table caption-top table-hover">
+            <caption>Customers</caption>
+            <thead>
+                <tr>
+                    <th scope="col">SSN</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">First name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var person in bp.Customers)
+                {
+                    <tr>
+                        <td>@person.SSN</td>
+                        <td>@person.LastName</td>
+                        <td>@person.FirstName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</section>
+
+
+@*inget @code-block i razor allt ska gå igenom injectionen från business *@
