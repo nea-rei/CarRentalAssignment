@@ -1,9 +1,4 @@
 ﻿using Common.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Common.Classes;
 
@@ -18,21 +13,29 @@ public class Booking : IBooking
     public int Cost { get; set; }
     public bool Status { get; set; }
 
+    public void GetCustomer(IPerson person)
+    {
 
+    }
 
+    public void GetVehicle(IVehicle vehicle)
+    {
+
+    }
     public Booking()
     {
 
     }
-    //public void GetRentalDays(string rentaldate, string returndate) =>
+
+
+    //göra en extensionmetod? public void GetRentalDays(string rentaldate, string returndate) =>
     //(RentalDate, ReturnDate) = (rentaldate, returndate);
 
-    //ska innehålla en metod som anropas när ett fordon återlämnas
-    //Den ska beräkna kostnaden för uthyrningen
+    //anropas när ett fordon återlämnas, ska beräkna kostnaden för uthyrningen
     public void ReturnVehicle(IVehicle vehicle)
     {
-        Cost = 0;
-
+        //Cost = Duration() * vehicle.DailyCost + TotalKm() * vehicle.CostKm;
 
     }
 }
+

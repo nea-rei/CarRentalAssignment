@@ -12,8 +12,16 @@ public class Customer : IPerson
     public int SSN { get; set; }
     public string LastName { get; set; } = string.Empty;
     public string FirstName { get; set; } = string.Empty;
+    public string FullName { get; set; } = string.Empty;
 
+    public string FullNameCustomer()
+    {
+        return FullName = $"{LastName}{FirstName}";
+    }
+    public Customer(){}
     public Customer(int ssn, string lastname, string firstname) =>
         (SSN, LastName, FirstName) = (ssn, lastname, firstname);
+
+
 
 }
