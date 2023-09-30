@@ -37,18 +37,9 @@
                         <td>@vehicle.VType</td>
                         <td>@vehicle.DailyCost</td>
                         <td>
-                            @if (@vehicle.Status.Equals(bp.VehicleStatus))
-                            {
-                                <button type="button" class="btn btn-success position-relative badge rounded-pill text-bg-success">@vehicle.Status
-                                </button>
-                            }
-                            else
-                            {
-                                <button type="button" class="btn btn-danger position-relative badge rounded-pill text-bg-danger">
+                              <button type="button" class="btn btn-success position-relative badge rounded-pill text-bg-@(vehicle.Status.Equals(bp.VehicleStatus) ? "success" : "danger")">
                                     @vehicle.Status
-                                </button>
-                            }
-
+                              </button>
                         </td>
                     </tr>
                 }

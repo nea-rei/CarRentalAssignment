@@ -20,8 +20,9 @@ public class CollectionData : IData
         _persons.Add(new Customer(88563, "Höve", "Anna"));
         _vehicles.Add(new Car("JUH458", "Volvo", 10000, 1, VehicleTypes.Combi, 200, VehicleStatus.Booked));
         _vehicles.Add(new Car("MAN985", "Saab", 20000, 1, VehicleTypes.Sedan, 100, VehicleStatus.Available));
-        _vehicles.Add(new Car("NUJ741", "Yamaha", 20000, 0.5, VehicleTypes.Motorcycle, 50, VehicleStatus.Available));
+        _vehicles.Add(new Motorcycle("NUJ741", "Yamaha", 20000, 0.5, VehicleTypes.Motorcycle, 50, VehicleStatus.Available));
         _vehicles.Add(new Car("WEK864", "Tesla", 1000, 3, VehicleTypes.Sedan, 100, VehicleStatus.Booked));
+        _vehicles.Add(new Car("KYT185", "Jeep", 5000, 1.5, VehicleTypes.Van, 300, VehicleStatus.Booked));
 
     }
     public IEnumerable<IPerson> GetPersons() => _persons;
