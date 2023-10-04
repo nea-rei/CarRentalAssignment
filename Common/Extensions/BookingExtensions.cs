@@ -1,12 +1,15 @@
-﻿using Common.Interfaces;
+﻿using Common.Classes;
+using Common.Interfaces;
 
 namespace Common.Extensions;
 
 public static class BookingExtensions
 {
-    //public static int Duration(this DateTime rentaldate, DateTime returndate){ return int; }
-
-    public static int TotalKm(this IVehicle vehicle, IBooking booking)
-    {  return vehicle.Odometer * booking.ReturnedKm;}
+    public static double Duration(this DateTime returndate, DateTime rentaldate)
+    {
+        TimeSpan span = returndate.Subtract(rentaldate);
+        var days = span.Days;
+        return days;
+    }
 }
 

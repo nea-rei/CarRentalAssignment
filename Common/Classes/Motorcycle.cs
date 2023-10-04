@@ -16,7 +16,7 @@ public class Motorcycle : IVehicle
     public double CostKm { get; set; }
     public VehicleTypes VType { get; set; }
     public int DailyCost { get; set; }
-    public VehicleStatus Status { get; set; } = default;
+    public VehicleStatus Status { get; set; }
 
     public Motorcycle(string regNo, string brand, int odometer, double costKm, VehicleTypes vType,
         int dailyCost, VehicleStatus status)

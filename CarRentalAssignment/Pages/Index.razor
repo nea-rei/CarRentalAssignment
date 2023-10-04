@@ -7,7 +7,7 @@
 </header>
 
 
-<section class="col-md-6">
+<section class="container-fluid">
     <!--Vehicles-->
     <div class="row">
 
@@ -30,14 +30,14 @@
                 @foreach (var vehicle in bp.Vehicles)
                 {
                     <tr>
-                        <td>@vehicle.RegNo</td>
+                        <td class="fw-bold">@vehicle.RegNo</td>
                         <td>@vehicle.Brand</td>
                         <td>@vehicle.Odometer</td>
                         <td>@vehicle.CostKm</td>
                         <td>@vehicle.VType</td>
                         <td>@vehicle.DailyCost</td>
                         <td>
-                              <button type="button" class="btn btn-success position-relative badge rounded-pill text-bg-@(vehicle.Status.Equals(bp.VehicleStatus) ? "success" : "danger")">
+                              <button type="button" class="btn btn-success position-relative badge border-0 rounded-pill text-bg-@(vehicle.Status.Equals(bp.VehicleStatus) ? "success" : "danger")">
                                     @vehicle.Status
                               </button>
                         </td>
@@ -64,26 +64,20 @@
                 </tr>
             </thead>
             <tbody>
+                @foreach (var booking in bp.Bookings)
+                {
                 <tr>
-                    <th scope="row">1</th>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td><button type="button" class="blue btn btn-sm btn-primary position-relative">Returned</button></td>
+                    <th class="fw-bold">@booking.RegNo</th>
+                    <td>@booking.Person.FullName</td>
+                    <td>@booking.Vehicle.Odometer</td>
+                    <td>@booking.ReturnedKm</td>
+                    <td>@booking.RentalDate.ToString("dd'/'MM'/'yyyy")</td>
+                    <td>@booking.ReturnDate?.ToString("dd'/'MM'/'yyyy")</td>
+                    <td>@booking.Cost</td>
+                    <td><button type="button" class="blue btn btn-sm btn-@(booking.Vehicle.Status.Equals(bp.VehicleStatus) ? "success" : "primary")">
+                        @(booking.Vehicle.Status.Equals(bp.VehicleStatus) ? "Returned" : "Open")</button></td>
                 </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>Jacob</td>
-                    <td>Thornton</td>
-                    <td>fat</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td>mdo</td>
-                    <td><button type="button" class="red btn btn-sm btn-danger position-relative">Booked</button></td>
-                </tr>
+                }
             </tbody>
         </table>
     </div>
@@ -103,7 +97,7 @@
                 @foreach (var person in bp.Customers)
                 {
                     <tr>
-                        <td>@person.SSN</td>
+                        <td class="fw-bold">@person.SSN</td>
                         <td>@person.LastName</td>
                         <td>@person.FirstName</td>
                     </tr>

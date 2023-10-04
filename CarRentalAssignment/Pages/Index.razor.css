@@ -18,5 +18,15 @@ table.tab3 {
 }
 
 button.blue {
+    font-size: 0.75em;
+    font-weight: 700;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+    padding-top: 0.1em;
+    padding-bottom: 0.1em;
+
+}
+td.customer{
+
 }
 

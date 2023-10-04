@@ -14,6 +14,10 @@ public class BookingProcessor
     public IEnumerable<IPerson> Customers => _data.GetPersons();
     //property som returnerar metoden GetPersons-metoden från
     public IEnumerable<IVehicle> Vehicles => _data.GetVehicles();
+    public IEnumerable<IBooking> Bookings => _data.GetBookings();
+
+
+
 
 
     public VehicleStatus VehicleStatus = VehicleStatus.Available;
