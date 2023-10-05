@@ -4,8 +4,8 @@ namespace Common.Interfaces
 {
     public interface IVehicle
     {
-        public string RegNo { get; set; }
-        public string Brand { get; set; }
+        public string RegNo { get; init; }
+        public string Brand { get; init; }
         public int Odometer { get; set; }
         public double CostKm { get; set; }
         public VehicleTypes VType { get; set; }

@@ -2,9 +2,9 @@
 {
     public interface IPerson
     {
-        public int SSN { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
+        public int SSN { get; init; }
+        public string LastName { get; init; }
+        public string FirstName { get; init; }
         public string FullName => $"{LastName} {FirstName} ({SSN})";
     }
 }

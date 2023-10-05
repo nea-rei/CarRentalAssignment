@@ -7,19 +7,15 @@ namespace Business.Classes;
 public class BookingProcessor
 {
 
-    private readonly IData _data; //interfaceinjektion (istället för klassinj)
-                                  //för att uppnå en "mjuk" koppling med datalagret
-    public BookingProcessor(IData data) => _data = data;//(mini-affärslager) konstruktor som injeceras med IData-objekt
-
+    private readonly IData _data;
+    public VehicleStatus _vehicleStatus = VehicleStatus.Available;
+    public BookingProcessor(IData data) => _data = data;
     public IEnumerable<IPerson> Customers => _data.GetPersons();
-    //property som returnerar metoden GetPersons-metoden från
     public IEnumerable<IVehicle> Vehicles => _data.GetVehicles();
     public IEnumerable<IBooking> Bookings => _data.GetBookings();
-
-
-
-
-
-    public VehicleStatus VehicleStatus = VehicleStatus.Available;
-
 }
+
+
+
+
+

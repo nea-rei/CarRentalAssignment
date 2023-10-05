@@ -1,15 +1,14 @@
 ﻿using Common.Enums;
 using Common.Extensions;
 using Common.Interfaces;
-using Microsoft.VisualBasic;
 
 namespace Common.Classes;
 
 public class Booking : IBooking
 {
-    public string RegNo { get; set; } = string.Empty;
-    public IPerson Person { get; set; }
-    public IVehicle Vehicle { get; set; }
+    public string RegNo { get; init; } = string.Empty;
+    public IPerson Person { get; init; }
+    public IVehicle Vehicle { get; init; }
     public int StartKm { get; set; }
     public int? ReturnedKm { get; set; }
     public DateTime RentalDate { get; set; }
@@ -26,7 +25,7 @@ public class Booking : IBooking
         RentalDate = rentaldate;
         Status = vehicle.Status;
     }
-    public Booking(IPerson person, IVehicle vehicle, int returnedkm, DateTime rentaldate, DateTime returndate, double cost)
+    public Booking(IPerson person, IVehicle vehicle, int returnedkm, DateTime rentaldate, DateTime returndate)
     {
         RegNo = vehicle.RegNo;
         Person = person;
@@ -35,20 +34,8 @@ public class Booking : IBooking
         ReturnDate = returndate;
         StartKm = vehicle.Odometer;
         ReturnedKm = returnedkm;
-        Cost = cost;
         Status = vehicle.Status;
     }
-
-    public Booking()
-    {
-
-    }
-
-
-
-
-    //göra en extensionmetod för datum?
-
     public void ReturnVehicle(IVehicle vehicle)
     {
 

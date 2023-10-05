@@ -3,16 +3,37 @@
 @inject BookingProcessor bp
 
 <header>
-    <h1 class="display-6 m-5 mx-0 text-start">Welcome to Car Rental booking!</h1>
+    <h1 class="display-6 m-5 mx-0 text-center">Welcome to Car Rental booking!</h1>
 </header>
 
 
-<section class="container-fluid">
+<section class="container">
+    <!--Customers-->
+    <div class="row">
+        <table class="tab3 table caption-top table-hover">
+            <caption>Customers</caption>
+            <thead>
+                <tr>
+                    <th scope="col">SSN</th>
+                    <th scope="col">Last name</th>
+                    <th scope="col">First name</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var person in bp.Customers)
+                {
+                    <tr>
+                        <td class="fw-bold">@person.SSN</td>
+                        <td>@person.LastName</td>
+                        <td>@person.FirstName</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
     <!--Vehicles-->
     <div class="row">
-
-
-
         <table class="tab1 table table-hover table-borderless caption-top">
             <caption>Vehicles</caption>
             <thead>
@@ -37,7 +58,8 @@
                         <td>@vehicle.VType</td>
                         <td>@vehicle.DailyCost</td>
                         <td>
-                              <button type="button" class="btn btn-success position-relative badge border-0 rounded-pill text-bg-@(vehicle.Status.Equals(bp.VehicleStatus) ? "success" : "danger")">
+                              <button type="button" class="btn btn-success position-relative
+                                badge border-0 rounded-pill text-bg-@(vehicle.Status.Equals(bp._vehicleStatus) ? "success" : "danger")">
                                     @vehicle.Status
                               </button>
                         </td>
@@ -67,42 +89,25 @@
                 @foreach (var booking in bp.Bookings)
                 {
                 <tr>
-                    <th class="fw-bold">@booking.RegNo</th>
+                    <th class="fw-bold">@booking.Vehicle.RegNo</th>
                     <td>@booking.Person.FullName</td>
                     <td>@booking.Vehicle.Odometer</td>
                     <td>@booking.ReturnedKm</td>
                     <td>@booking.RentalDate.ToString("dd'/'MM'/'yyyy")</td>
                     <td>@booking.ReturnDate?.ToString("dd'/'MM'/'yyyy")</td>
                     <td>@booking.Cost</td>
-                    <td><button type="button" class="blue btn btn-sm btn-@(booking.Vehicle.Status.Equals(bp.VehicleStatus) ? "success" : "primary")">
-                        @(booking.Vehicle.Status.Equals(bp.VehicleStatus) ? "Returned" : "Open")</button></td>
+                        <td>
+                            <button type="button" class="blue btn btn-sm position-relative
+                                btn-@(booking.Vehicle.Status.Equals(bp._vehicleStatus) ? "success" : "primary")">
+                                @(booking.Vehicle.Status.Equals(bp._vehicleStatus) ? "Returned" : "Open")
+                            </button>
+                         </td>
                 </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-
-    <!--Customers-->
-    <div class="row">
-        <table class="tab3 table caption-top table-hover">
-            <caption>Customers</caption>
-            <thead>
-                <tr>
-                    <th scope="col">SSN</th>
-                    <th scope="col">Last name</th>
-                    <th scope="col">First name</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var person in bp.Customers)
-                {
-                    <tr>
-                        <td class="fw-bold">@person.SSN</td>
-                        <td>@person.LastName</td>
-                        <td>@person.FirstName</td>
-                    </tr>
                 }
             </tbody>
         </table>
     </div>
 </section>
+
+
+

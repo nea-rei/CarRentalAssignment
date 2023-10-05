@@ -5,8 +5,8 @@ namespace Common.Classes
 {
     public class Car : IVehicle
     {
-        public string RegNo { get; set; } = string.Empty;
-        public string Brand { get; set; } = string.Empty;
+        public string RegNo { get; init; } = string.Empty;
+        public string Brand { get; init; } = string.Empty;
         public int Odometer { get; set; }
         public double CostKm { get; set; }
         public VehicleTypes VType { get; set; }

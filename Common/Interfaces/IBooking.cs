@@ -6,9 +6,9 @@ namespace Common.Interfaces;
 
 public interface IBooking
 {
-    public string RegNo { get; set; }
-    public IPerson Person { get; set; }
-    public IVehicle Vehicle { get; set; }
+    public string RegNo { get; init; }
+    public IPerson Person { get; init; }
+    public IVehicle Vehicle { get; init; }
     public int? ReturnedKm { get; set; }
     public int StartKm { get; set; }
     public DateTime RentalDate { get; set; }
